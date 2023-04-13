@@ -1,15 +1,12 @@
 import {
   Collapse,
   List,
-  ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   ListSubheader,
 } from "@mui/material";
 import {
-  ArrowForward,
-  ArrowForwardIos,
   East,
   ExpandLess,
   ExpandMore,
@@ -25,7 +22,7 @@ export const Main: React.FC<Props> = ({}) => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <s.Container>
+    <s.Container elevation={5}>
       <List
         sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         component="nav"

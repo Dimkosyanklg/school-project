@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: <App />,
   },
 ]);
 

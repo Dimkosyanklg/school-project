@@ -1,13 +1,11 @@
 import React from "react";
-import { createGlobalStyle } from "styled-components";
-import logo from "./logo.svg";
 import { Main } from "./main/Main";
-
-
+import { Header } from "./header/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Main />
     </>
   );
