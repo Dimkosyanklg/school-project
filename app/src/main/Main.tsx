@@ -1,28 +1,22 @@
 import {
   Collapse,
   List,
-  ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   ListSubheader,
 } from "@mui/material";
-import {
-  ArrowForward,
-  ArrowForwardIos,
-  East,
-  ExpandLess,
-  ExpandMore,
-  StarBorder,
-} from "@mui/icons-material";
+import { East, ExpandLess, ExpandMore } from "@mui/icons-material";
 import React, { useState } from "react";
 import * as s from "./main.styled";
 import { CLASSES, THEMES } from "./consts";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 export const Main: React.FC<Props> = ({}) => {
   const [open, setOpen] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <s.Container>
@@ -37,7 +31,7 @@ export const Main: React.FC<Props> = ({}) => {
         }
       >
         {CLASSES.map((classNumber) => (
-          <>
+          <React.Fragment key={classNumber}>
             <ListItemButton
               onClick={() => {
                 setOpen((prevState) =>
@@ -51,17 +45,23 @@ export const Main: React.FC<Props> = ({}) => {
             </ListItemButton>
             <Collapse in={open === classNumber} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                {THEMES?.[classNumber]?.map((theme) => (
-                  <ListItemButton sx={{ pl: 4 }}>
+                {THEMES?.[classNumber]?.map(({ name, url }) => (
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate(url);
+                    }}
+                    key={url}
+                  >
                     <ListItemIcon>
                       <East />
                     </ListItemIcon>
-                    <ListItemText primary={theme.name} />
+                    <ListItemText primary={name} />
                   </ListItemButton>
                 ))}
               </List>
             </Collapse>
-          </>
+          </React.Fragment>
         ))}
       </List>
     </s.Container>

@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-import App from "./App";
+import { ClassPage } from "./classPage/ClassPage";
 import { Main } from "./main/Main";
 import reportWebVitals from "./reportWebVitals";
+import backgroundImage from "./images/background.jpg";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,13 +15,19 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    background-image: url(${backgroundImage})
   }
+  p {line-height: 1.5;}
 `;
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+  },
+  {
+    path: "/:classNumber/:themeNumber",
+    element: <ClassPage />,
   },
 ]);
 
