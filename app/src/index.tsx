@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Main />,
   },
   {
     path: "/:classNumber/:themeNumber",

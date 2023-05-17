@@ -14,7 +14,7 @@ export const ClassPage: React.FC<Props> = ({}) => {
 
   const navigate = useNavigate();
   return (
-    <s.Container>
+    <s.Container elevation={5}>
       <div
         onClick={() => {
           navigate("/");
