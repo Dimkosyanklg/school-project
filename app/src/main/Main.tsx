@@ -6,7 +6,12 @@ import {
   ListItemText,
   ListSubheader,
 } from "@mui/material";
-import { East, ExpandLess, ExpandMore } from "@mui/icons-material";
+import {
+  East,
+  ExpandLess,
+  ExpandMore,
+  StarBorder,
+} from "@mui/icons-material";
 import React, { useState } from "react";
 import * as s from "./main.styled";
 import { CLASSES, THEMES } from "./consts";
@@ -19,7 +24,7 @@ export const Main: React.FC<Props> = ({}) => {
   const navigate = useNavigate();
 
   return (
-    <s.Container>
+    <s.Container elevation={5}>
       <List
         sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         component="nav"
